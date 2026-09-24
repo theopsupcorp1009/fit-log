@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaCheck, FaRegClock, FaRegStar } from "react-icons/fa";
+import { FaRegClock, FaRegStar } from "react-icons/fa";
 import { FaFireFlameCurved } from "react-icons/fa6";
 import RemoveButton from "../allPlans/RemoveButton";
+import MarkAsDoneButton from "../allPlans/MarkAsDoneButton";
 
 const TodayPlanCard = ({ activeTab, data }) => {
 
@@ -44,9 +45,7 @@ const TodayPlanCard = ({ activeTab, data }) => {
           <button className="btn rounded-4xl font-inter text-[12px] border-[#374151] bg-[#00000028]">
             <Link href={`/exercises/${data.id}`}>View Details</Link>
           </button>
-          <button className="btn rounded-4xl font-inter font-semibold text-[12px] text-[#000000] bg-[#CCFF00]">
-            <FaCheck /> Mark as Done
-          </button>
+          <MarkAsDoneButton/>
           <RemoveButton activeTab={activeTab} data={data} />
         </div>
       </div>

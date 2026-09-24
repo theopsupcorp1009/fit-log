@@ -3,6 +3,7 @@
 import { Context } from '@/Context/Context';
 import React, { useContext } from 'react';
 import { IoMdClose } from "react-icons/io";
+import { toast } from 'react-toastify';
 
 const RemoveButton = ({activeTab, data}) => {
 
@@ -16,6 +17,8 @@ const RemoveButton = ({activeTab, data}) => {
             const currentSaved = saveForLater.filter(saved=>saved.id!==data.id);
             setSaveForLater(currentSaved);
         }
+
+        toast.error("Removed from the list");
     }
 
     return (

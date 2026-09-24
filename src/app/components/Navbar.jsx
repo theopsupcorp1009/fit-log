@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <div className="border-b border-[#222630]">
-      <nav className="container mx-auto  flex justify-between items-center py-5">
+      <nav className="container mx-auto flex justify-between items-center py-5">
         <div className="flex gap-2 justify-center items-center">
           <Image src={Logo} width={25} alt="Logo" />
           <h2 className="text-[18px] font-[900]">FITLOG</h2>

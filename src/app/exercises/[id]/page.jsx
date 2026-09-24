@@ -16,7 +16,7 @@ const ExcerciseDetailPage = async ({ params }) => {
   return (
     <section className="container mx-auto mt-15">
       <div className="grid grid-cols-2 items-start">
-        <div className="relative w-[550px] h-[645px]">
+        <div className="relative w-[550px] h-[723px]">
           <Image
             src={data.image}
             fill
@@ -28,7 +28,7 @@ const ExcerciseDetailPage = async ({ params }) => {
         <div className="space-y-5">
           <div>
             <h2 className="uppercase text-[38px] font-bold">{data.name}</h2>
-            <p className="font-inter text-[16px] text-[#9CA3AF]">
+            <p lassName="font-inter text-[16px] text-[#9CA3AF]">
               {data.description}
             </p>
           </div>
@@ -44,58 +44,64 @@ const ExcerciseDetailPage = async ({ params }) => {
             ))}
           </div>
 
-          <div className="font-inter text-[12px] font-bold text-[#9CA3AF] bg-[#1E2330] px-3 mt-8 rounded-[12px]">
-            <div className="flex justify-between items-center border-b border-[#232834] py-3">
-              <span>EQUIPMENT</span>
-              <span>{data.equipment}</span>
-            </div>
+          <table className="w-full border-collapse font-inter text-[12px] font-bold text-[#9CA3AF] bg-[#1E2330] mt-8 rounded-[12px]">
+            <tbody>
+              <tr className="border-b border-[#232834]">
+                <td className="px-6 py-4">EQUIPMENT</td>
+                <td className="px-6 py-4 text-right">{data.equipment}</td>
+              </tr>
 
-            <div className="flex justify-between items-center border-b border-[#232834] py-3">
-              <span>DIFFICULTY</span>
-              <span>{data.difficulty}</span>
-            </div>
+              <tr className="border-b border-[#232834]">
+                <td className="px-6 py-4">DIFFICULTY</td>
+                <td className="px-6 py-4 text-right">{data.difficulty}</td>
+              </tr>
 
-            <div className="flex justify-between items-center border-b border-[#232834] py-3">
-              <span>SETS</span>
-              <span>{data.sets}</span>
-            </div>
+              <tr className="border-b border-[#232834]">
+                <td className="px-6 py-4">SETS</td>
+                <td className="px-6 py-4 text-right">{data.sets}</td>
+              </tr>
 
-            <div className="flex justify-between items-center border-b border-[#232834] py-3">
-              <span>REPS</span>
-              <span>{data.reps}</span>
-            </div>
+              <tr className="border-b border-[#232834]">
+                <td className="px-6 py-4">REPS</td>
+                <td className="px-6 py-4 text-right">{data.reps}</td>
+              </tr>
 
-            <div className="flex justify-between items-center border-b border-[#232834] py-3">
-              <span>DURATION</span>
-              <span>{data.duration} min</span>
-            </div>
+              <tr className="border-b border-[#232834]">
+                <td className="px-6 py-4">DURATION</td>
+                <td className="px-6 py-4 text-right">{data.duration} min</td>
+              </tr>
 
-            <div className="flex justify-between items-center border-b border-[#232834] py-3">
-              <span>CALORIES</span>
-              <span>{data.caloriesBurned} Kcal</span>
-            </div>
+              <tr className="border-b border-[#232834]">
+                <td className="px-6 py-4">CALORIES</td>
+                <td className="px-6 py-4 text-right">
+                  {data.caloriesBurned} Kcal
+                </td>
+              </tr>
 
-            <div className="flex justify-between items-center border-b border-[#232834] py-3">
-              <span>RATING</span>
-              <span>{data.rating}</span>
-            </div>
+              <tr>
+                <td className="px-6 py-4">RATING</td>
+                <td className="px-6 py-4 text-right">{data.rating}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div className="space-y-3 mt-8">
+            <h2 className="font-inter font-extrabold text-[16px]">
+              INSTRUCTION
+            </h2>
+            <ol className="ml-4 font-inter text-[14px] text-[#D1D5DB] text-justify space-y-2">
+              {data.instructions.map((instruction, index) => (
+                <li key={index} className="list-decimal">
+                  {instruction}
+                </li>
+              ))}
+            </ol>
           </div>
 
-
-            <div className="space-y-3 mt-8">
-                <h2 className="font-inter font-extrabold text-[16px]">INSTRUCTION</h2>
-                <ol className="ml-4 font-inter text-[14px] text-[#D1D5DB] text-justify space-y-2">
-                    {
-                        data.instructions.map((instruction, index)=>(<li key={index} className="list-decimal">{instruction}</li>))
-                    }
-                </ol>
-            </div>
-
-            <div className="flex gap-3 items-center justify-start font-inter text-[14px] mt-10">
-                <TodayPlanButton data={data} />
-                <SaveForLaterButton data={data}/>
-            </div>
-
+          <div className="flex gap-3 items-center justify-start font-inter text-[14px] mt-10">
+            <TodayPlanButton data={data} />
+            <SaveForLaterButton data={data} />
+          </div>
         </div>
       </div>
     </section>

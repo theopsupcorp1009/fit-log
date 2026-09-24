@@ -38,18 +38,24 @@ const page = () => {
       <div className="relative mt-8">
         <div className="flex items-center font-inter w-60 rounded-[12px] text-[12px] bg-[#1B1F27] p-1">
           <button
-          onClick={()=>setActiveTab("today")}
-          className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer ${
-            activeTab==="today" && "bg-[#1F242D] border-2 border-[#2B303D] text-white font-semibold"
-          }`}>
+            onClick={() => setActiveTab("today")}
+            className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer ${
+              activeTab === "today" &&
+              "bg-[#1F242D] border-2 border-[#2B303D] text-white font-semibold"
+            }`}
+          >
             Today's Plan
-            </button>
+          </button>
 
-          <button 
-           onClick={()=>setActiveTab("saved")}
-          className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer ${
-            activeTab==="saved" && "bg-[#1F242D] border-2 border-[#2B303D] text-white font-semibold"
-          }`}>Saved</button>
+          <button
+            onClick={() => setActiveTab("saved")}
+            className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer ${
+              activeTab === "saved" &&
+              "bg-[#1F242D] border-2 border-[#2B303D] text-white font-semibold"
+            }`}
+          >
+            Saved
+          </button>
         </div>
 
         <div className="absolute right-0 top-1/2 -translate-y-1/2 flex gap-2 justify-between items-center">
@@ -67,20 +73,25 @@ const page = () => {
         </div>
       </div>
       <div className="mt-5">
-        {
-        activeTab==="today"
-        ? (
-          todayPlan.length>0
-          ? todayPlan.map(plan=><TodayPlanCard key={plan.id} data={plan}/>)
-          : <EmptyCard/>
-        )
-        : 
-        (
-          saveForLater.length>0
-          ? saveForLater.map(saved=><SavedForLaterCard key={saved.id} data={saved}/>)
-          : <EmptyCard/>
-        )    
-      }
+        {activeTab === "today" ? (
+          todayPlan.length > 0 ? (
+            <div className="grid gap-4">
+              {todayPlan.map((plan) => (
+                <TodayPlanCard key={plan.id} data={plan} />
+              ))}
+            </div>
+          ) : (
+            <EmptyCard />
+          )
+        ) : saveForLater.length > 0 ? (
+          <div className="grid gap-4">
+            {saveForLater.map((saved) => (
+              <SavedForLaterCard key={saved.id} data={saved} />
+            ))}
+          </div>
+        ) : (
+          <EmptyCard />
+        )}
       </div>
     </div>
   );

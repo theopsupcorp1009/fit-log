@@ -1,12 +1,34 @@
-import React from 'react';
-import { LuCalendarPlus2 } from "react-icons/lu";
+"use client";
 
-const TodayPlanButton = ({data}) => {
-    return (
-        <div>
-            <button className="btn rounded-[10px] font-semibold bg-[#CCFF00] text-[#000000]"><LuCalendarPlus2/> Add to today's plan</button>
-        </div>
-    );
+import { Context } from "@/Context/Context";
+import React, { useContext } from "react";
+import { LuCalendarPlus2 } from "react-icons/lu";
+import { toast } from "react-toastify";
+
+const TodayPlanButton = ({ data }) => {
+  const { todayPlan, setTodayPlan } = useContext(Context);
+
+
+  const handleTodayPlan = () => {
+    const added = todayPlan.some((plan) => plan.id === data.id);
+    if (added) {
+      toast.error("Already Added");
+      return;
+    }
+    setTodayPlan([...todayPlan, data]);
+    toast.success("Added to today's plan");
+  };
+
+  return (
+    <div>
+      <button
+        onClick={handleTodayPlan}
+        className="btn rounded-[10px] font-semibold bg-[#CCFF00] text-[#000000]"
+      >
+        <LuCalendarPlus2 /> Add to today's plan
+      </button>
+    </div>
+  );
 };
 
 export default TodayPlanButton;

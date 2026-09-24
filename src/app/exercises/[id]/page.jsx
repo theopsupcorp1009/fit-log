@@ -93,7 +93,7 @@ const ExcerciseDetailPage = async ({ params }) => {
 
             <div className="flex gap-3 items-center justify-start font-inter text-[14px] mt-10">
                 <TodayPlanButton data={data} />
-                <SaveForLaterButton data={data} />
+                <SaveForLaterButton data={data}/>
             </div>
 
         </div>

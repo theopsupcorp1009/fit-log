@@ -2,6 +2,8 @@ import { Oswald, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ContextProvider from "@/Context/Context";
+import { ToastContainer } from "react-toastify";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -10,7 +12,7 @@ const oswald = Oswald({
 
 const inter = Inter({
   variable: "--inter-font",
-  subsets: ["latin"], 
+  subsets: ["latin"],
 });
 
 export const metadata = {
@@ -25,9 +27,14 @@ export default function RootLayout({ children }) {
       className={`${oswald.variable} ${inter.variable}} h-full antialiased`}
     >
       <body className="font-oswald min-h-full flex flex-col font-oswald">
-        <Navbar />
-        {children}
-        <Footer/>
+
+        <ContextProvider>
+          <Navbar />
+          {children}
+          <Footer />
+          <ToastContainer />
+        </ContextProvider>
+
       </body>
     </html>
   );

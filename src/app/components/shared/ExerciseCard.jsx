@@ -5,7 +5,7 @@ import { FaRegClock, FaRegStar } from "react-icons/fa";
 import { FaFireFlameCurved } from "react-icons/fa6";
 
 const ExerciseCard = ({ data }) => {
-  console.log(data);
+
   return (
     <div className="bg-[#20242e9c] rounded-2xl">
       <Link href={`exercises/${data.id}`}>

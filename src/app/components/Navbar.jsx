@@ -1,9 +1,15 @@
+"use client"
+
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Logo from "../../assets/logo.png";
+import { Context } from "@/Context/Context";
 
 const Navbar = () => {
+
+  const {todayPlan, saveForLater} = useContext(Context);
+
   return (
     <div className="border-b border-[#222630]">
       <nav className="container mx-auto  flex justify-between items-center py-5">
@@ -26,14 +32,14 @@ const Navbar = () => {
             <Link href="/myplan" className="text-[#D1D5DB] text-[12px] font-medium">
               Plan
             </Link>
-            <p className="bg-[#C2F800] rounded-full px-1 text-[#000000] text-[11px] font-bold">0</p>
+            <p className="bg-[#C2F800] rounded-full px-1.5 text-[#000000] text-[11px] font-bold">{todayPlan.length}</p>
           </div>
 
           <div className="flex gap-1 items-center justify-center">
             <Link href="/myplan" className="text-[#9CA3AF] text-[12px] font-medium">
               Saved
             </Link>
-            <p className="border border-[#2D313B] rounded-full px-1 text-[#D1D5DB] text-[11px] font-medium">0</p>
+            <p className="border border-[#2D313B] rounded-full px-1.5 text-[#D1D5DB] text-[11px] font-medium">{saveForLater.length}</p>
           </div>
         </div>
       </nav>

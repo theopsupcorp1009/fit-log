@@ -1,7 +1,16 @@
-import React from "react";
-import { BiChevronDown } from "react-icons/bi";
+"use client";
+
+import React, { useState } from "react";
+import { Context } from "@/Context/Context";
+import { useContext } from "react";
+import TodayPlanCard from "../components/shared/TodayPlanCard";
+import SavedForLaterCard from "../components/shared/SavedForLaterCard";
+import EmptyCard from "../components/shared/EmptyCard";
 
 const page = () => {
+  const { todayPlan, saveForLater } = useContext(Context);
+  const [activeTab, setActiveTab] = useState("today");
+
   return (
     <div className="container mx-auto mt-15">
       <div className="space-y-2">
@@ -26,55 +35,52 @@ const page = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-center  mt-10">
-        <div className="tabs tabs-box grid grid-cols-2 justify-between items-center rounded-[12px] w-60">
-          <input
-            type="radio"
-            name="my_tabs_1"
-            className="tab font-inter text-[12px] rounded-[12px]"
-            aria-label="Today's Plan"
-          />
+      <div className="relative mt-8">
+        <div className="flex items-center font-inter w-60 rounded-[12px] text-[12px] bg-[#1B1F27] p-1">
+          <button
+          onClick={()=>setActiveTab("today")}
+          className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer ${
+            activeTab==="today" && "bg-[#1F242D] border-2 border-[#2B303D] text-white font-semibold"
+          }`}>
+            Today's Plan
+            </button>
 
-          <input
-            type="radio"
-            name="my_tabs_1"
-            className="tab rounded-[12px] font-inter text-[12px]"
-            aria-label="Saved"
-            defaultChecked
-          />
+          <button 
+           onClick={()=>setActiveTab("saved")}
+          className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer ${
+            activeTab==="saved" && "bg-[#1F242D] border-2 border-[#2B303D] text-white font-semibold"
+          }`}>Saved</button>
         </div>
 
-        <div className="flex gap-2 justify-between items-center">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex gap-2 justify-between items-center">
           <p className="font-inter text-[12px] text-[#8A92A0] shrink-0">
             Sort By
           </p>
-          <div className="flex items-center justify-between rounded-[9px] border border-[#232732] bg-[#13161D] px-3">
-            <select
-              defaultValue="Duration"
-              className="select-neutral appearance-none bg-transparent py-2 pr-8 font-inter text-[12px] text-[#D1D5DB] outline-none"
-            >
-              <option>Duration</option>
-              <option>Calories</option>
-              <option>Rating</option>
-            </select>
-
-            <div className="pointer-events-none -ml-7 text-[#8A92A0]">
-              <BiChevronDown size={18} />
-            </div>
-          </div>
+          <select
+            defaultValue="Duration"
+            className="select select-ghost bg-[#13161D] border-[#232732] rounded-[9px] font-inter text-[12px]"
+          >
+            <option value={"duration"}>Duration</option>
+            <option value="categories">Calories</option>
+            <option value={"rating"}>Rating</option>
+          </select>
         </div>
       </div>
-
-      <div className="grid justify-center items-center text-center p-25 border-2 border-[#111317] rounded-[8px] mt-8 space-y-5">
-        <div className="max-w-[280px]">
-          <h2 className="font-bold text-[20px]">NOTHING HERE YET</h2>
-          <p className="font-inter text-[12px] text-[#A1A1AA]">
-            Browse the library and add a lift to get today moving.
-          </p>
-        </div>
-        <button className="btn font-inter font-semibold text-[#000000] text-[12px] bg-[#CCFF00] rounded-3xl w-40 mx-auto">
-          Go to workouts
-        </button>
+      <div className="mt-5">
+        {
+        activeTab==="today"
+        ? (
+          todayPlan.length>0
+          ? todayPlan.map(plan=><TodayPlanCard key={plan.id} data={plan}/>)
+          : <EmptyCard/>
+        )
+        : 
+        (
+          saveForLater.length>0
+          ? saveForLater.map(saved=><SavedForLaterCard key={saved.id} data={saved}/>)
+          : <EmptyCard/>
+        )    
+      }
       </div>
     </div>
   );

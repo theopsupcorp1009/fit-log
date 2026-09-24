@@ -11,6 +11,11 @@ const page = () => {
   const { todayPlan, saveForLater } = useContext(Context);
   const [activeTab, setActiveTab] = useState("today");
 
+  const currentPlan = activeTab === "today" ? todayPlan : saveForLater;
+  const totalExercises = currentPlan.length;
+  const totalDuration = currentPlan.reduce((total, exercise)=>total+exercise.duration,0);
+  const totalCaloriesBurned = currentPlan.reduce((total, exercise)=>total+exercise.caloriesBurned,0);
+
   return (
     <div className="container mx-auto mt-15">
       <div className="space-y-2">
@@ -23,15 +28,15 @@ const page = () => {
       <div className="mt-6 grid grid-cols-3 py-6 px-6 bg-[#13161D] border-2 border-[#232732] rounded-2xl">
         <div>
           <p className="font-inter text-[12px] text-[#8A92A0]">Exercises</p>
-          <span className="font-bold text-[36px] text-[#CCFF00]">1</span>
+          <span className="font-bold text-[36px] text-[#CCFF00]">{totalExercises}</span>
         </div>
         <div className="border-l pl-8 border-[#232732]">
           <p className="font-inter text-[12px] text-[#8A92A0]">Minutes</p>
-          <span className="font-bold text-[36px]">1</span>
+          <span className="font-bold text-[36px]">{totalDuration}</span>
         </div>
         <div className="border-l pl-8 border-[#232732]">
           <p className="font-inter text-[12px] text-[#8A92A0]">Calories</p>
-          <span className="font-bold text-[36px]">1</span>
+          <span className="font-bold text-[36px]">{totalCaloriesBurned}</span>
         </div>
       </div>
 
@@ -77,7 +82,7 @@ const page = () => {
           todayPlan.length > 0 ? (
             <div className="grid gap-4">
               {todayPlan.map((plan) => (
-                <TodayPlanCard key={plan.id} data={plan} />
+                <TodayPlanCard activeTab={activeTab} key={plan.id} data={plan} />
               ))}
             </div>
           ) : (
@@ -86,7 +91,7 @@ const page = () => {
         ) : saveForLater.length > 0 ? (
           <div className="grid gap-4">
             {saveForLater.map((saved) => (
-              <SavedForLaterCard key={saved.id} data={saved} />
+              <SavedForLaterCard activeTab={activeTab} key={saved.id} data={saved} />
             ))}
           </div>
         ) : (

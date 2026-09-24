@@ -28,7 +28,7 @@ const ExcerciseDetailPage = async ({ params }) => {
         <div className="space-y-5">
           <div>
             <h2 className="uppercase text-[38px] font-bold">{data.name}</h2>
-            <p lassName="font-inter text-[16px] text-[#9CA3AF]">
+            <p className="font-inter text-[16px] text-[#9CA3AF]">
               {data.description}
             </p>
           </div>

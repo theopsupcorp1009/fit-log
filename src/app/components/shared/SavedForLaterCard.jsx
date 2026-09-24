@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaCheck, FaRegClock, FaRegStar } from "react-icons/fa";
+import { FaRegClock, FaRegStar } from "react-icons/fa";
 import { FaFireFlameCurved } from "react-icons/fa6";
-import { IoMdClose } from "react-icons/io";
+import RemoveButton from "../allPlans/RemoveButton";
 
-const SavedForLaterCard = ({data}) => {
+const SavedForLaterCard = ({activeTab, data}) => {
     return (
         <div className="bg-[#14171E] border-[#232732] flex justify-between items-center p-5 rounded-3xl">
                <div className="flex justify-start gap-5 items-center">
@@ -43,7 +43,7 @@ const SavedForLaterCard = ({data}) => {
                  <button className="btn rounded-4xl font-inter text-[12px] border-[#374151] bg-[#00000028]">
                    <Link href={`/exercises/${data.id}`}>View Details</Link>
                  </button>
-                 <IoMdClose className="w-[28px] h-[28px] text-[#6B7280] cursor-pointer" />
+                 <RemoveButton activeTab={activeTab} data={data} />
                </div>
              </div>
     );

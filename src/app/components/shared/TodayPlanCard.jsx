@@ -11,7 +11,7 @@ const TodayPlanCard = ({ activeTab, data }) => {
   return (
       <div className="bg-[#14171E] border-[#232732] flex justify-between items-center p-5 rounded-3xl">
         <div className="flex justify-start gap-5 items-center">
-          <div className="relative h-[100px] w-[180px]">
+          <div className="relative h-[100px] w-[144px]">
             <Image
               src={data.image}
               alt={data.name}
@@ -42,7 +42,7 @@ const TodayPlanCard = ({ activeTab, data }) => {
         </div>
 
         <div className="flex gap-3 items-center">
-          <button className="btn rounded-4xl font-inter text-[12px] border-[#374151] bg-[#00000028]">
+          <button className="btn rounded-4xl font-inter text-[12px] border-[#374151] bg-[#00000028] hover:bg-transparent hover:border-0">
             <Link href={`/exercises/${data.id}`}>View Details</Link>
           </button>
           <MarkAsDoneButton/>

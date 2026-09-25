@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${oswald.variable} ${inter.variable}} h-full antialiased`}
     >
-      <body className="font-oswald min-h-full flex flex-col font-oswald">
+      <body className="font-oswald min-h-full flex flex-col">
 
         <ContextProvider>
           <Navbar />

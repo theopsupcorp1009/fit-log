@@ -16,7 +16,7 @@ const ExcerciseDetailPage = async ({ params }) => {
   return (
     <section className="container mx-auto mt-15">
       <div className="grid grid-cols-2 items-start">
-        <div className="relative w-[550px] h-[723px]">
+        <div className="relative w-[588px] h-[773px]">
           <Image
             src={data.image}
             fill

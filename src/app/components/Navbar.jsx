@@ -95,7 +95,7 @@ const Navbar = () => {
         </nav>
 
         {sideMenu && (
-          <div className="absolute top-17 right-2 sm:right-16 bg-[#0e0e0f] rounded-2xl md:hidden lg:hidden">
+          <div className="absolute top-17 right-2 z-50 sm:right-16 bg-[#0e0e0f] rounded-2xl md:hidden lg:hidden">
             <ul className="text-[12px] text-right font-inter p-3 space-y-3">
               <li onClick={() => setClicked("workouts")}>
                 <Link

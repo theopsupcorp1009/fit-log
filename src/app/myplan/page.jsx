@@ -69,111 +69,113 @@ const page = () => {
   const sortedSaveForLater = sortMyPlan(saveForLater, savedSortBy);
 
   return (
-    <div className="container mx-auto mt-15">
-      <div className="space-y-2">
-        <h2 className="text-[30px] font-bold">MY PLAN</h2>
-        <p className="font-inter text-[14px] text-[#8A92A0]">
-          Cap of five lifts for today. Finish them, then load more.
-        </p>
-      </div>
-
-      <div className="mt-6 grid grid-cols-3 py-6 px-6 bg-[#13161D] border-2 border-[#232732] rounded-2xl">
-        <div>
-          <p className="font-inter text-[12px] text-[#8A92A0]">Exercises</p>
-          <span className="font-bold text-[36px] text-[#CCFF00]">
-            {totalExercises}
-          </span>
-        </div>
-        <div className="border-l pl-8 border-[#232732]">
-          <p className="font-inter text-[12px] text-[#8A92A0]">Minutes</p>
-          <span className="font-bold text-[36px]">{totalDuration}</span>
-        </div>
-        <div className="border-l pl-8 border-[#232732]">
-          <p className="font-inter text-[12px] text-[#8A92A0]">Calories</p>
-          <span className="font-bold text-[36px]">{totalCaloriesBurned}</span>
-        </div>
-      </div>
-
-      <div className="relative mt-8">
-        <div className="flex items-center font-inter w-60 rounded-[12px] text-[12px] bg-[#1B1F27] p-1">
-          <button
-            onClick={() => setActiveTab("today")}
-            className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer hover:bg-[#15171d77] ${
-              activeTab === "today" &&
-              "border-2 border-[#2B303D] bg-[#000000] text-[#CCFF00] font-semibold"
-            }`}
-          >
-            Today's Plan
-          </button>
-
-          <button
-            onClick={() => setActiveTab("saved")}
-            className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer hover:bg-[#15171d77] ${
-              activeTab === "saved" &&
-              "border-2 border-[#2B303D] bg-[#000000] text-[#CCFF00] font-semibold"
-            }`}
-          >
-            Saved
-          </button>
-        </div>
-
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex gap-3 justify-between items-center">
-          <p className="font-inter text-[12px] text-[#8A92A0] shrink-0">
-            Sort By
+    <div className="container mx-auto mt-3 md:mt-15 lg:mt-15">
+      <div className="mx-5 md:mx-0 lg:mx-0">
+        <div className="space-y-2">
+          <h2 className="text-[30px] font-bold">MY PLAN</h2>
+          <p className="font-inter text-[14px] text-[#8A92A0]">
+            Cap of five lifts for today. Finish them, then load more.
           </p>
-          <select
-            value={activeTab === "today" ? todaySortBy : savedSortBy}
-            onChange={(e) => {
-              if (activeTab === "today") {
-                setTodaySortBy(e.target.value);
-              } else {
-                setSavedSortBy(e.target.value);
-              }
-            }}
-            className="cursor-pointer select select-ghost bg-[#13161D] border-[#232732] rounded-[9px] font-inter text-[12px] hover:bg-[#15171d77]"
-          >
-            <option value={"duration"}>Duration</option>
-            <option value="calories">Calories</option>
-            <option value={"rating"}>Rating</option>
-          </select>
         </div>
-      </div>
-      <div className="mt-5">
-        {activeTab === "today" ? (
-          todayPlanLoading ? (
-            <h2 className="font-inter text-[24px] text-[#CCFF00] font-bold flex justify-center items-center p-25">
+
+        <div className="mt-3 md:mt-6 lg:mt-6 grid grid-cols-1 gap-2 md:gap-0 lg:gap-0 items-center justify-center md:grid-cols-3 lg:grid-cols-3 md:py-6 md:px-6 lg:py-6 lg:px-6 md:bg-[#13161D] lg:bg-[#13161D] md:border-2 md:border-[#232732] md:rounded-2xl lg:border-2 lg:border-[#232732] lg:rounded-2xl">
+        <div className="bg-[#13161D] px-3 py-4 md:px-0 md:py-0 lg:px-0 lg:py-0  rounded-2xl md:bg-none lg:bg-none">
+            <p className="font-inter text-[12px] text-[#8A92A0]">Exercises</p>
+            <span className="font-bold text-[24px] md:text-[36px] lg:text-[36px] text-[#CCFF00]">
+              {totalExercises}
+            </span>
+          </div>
+          <div className="bg-[#13161D] rounded-2xl px-3 py-4 md:px-0 md:py-0 lg:px-0 lg:py-0 md:bg-none lg:bg-none md:border-l md:pl-8 md:border-[#232732] lg:border-l lg:pl-8 lg:border-[#232732]">
+            <p className="font-inter text-[12px] text-[#8A92A0]">Minutes</p>
+            <span className="font-bold text-[24px] md:text-[36px] lg:text-[36px]">{totalDuration}</span>
+          </div>
+          <div className="bg-[#13161D] rounded-2xl px-3 py-4 md:px-0 md:py-0 lg:px-0 lg:py-0 md:bg-none lg:bg-none md:border-l md:pl-8 md:border-[#232732] lg:border-l lg:pl-8 lg:border-[#232732]">
+            <p className="font-inter text-[12px] text-[#8A92A0]">Calories</p>
+            <span className="font-bold text-[24px] md:text-[36px] lg:text-[36px]]">{totalCaloriesBurned}</span>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row md:justify-between lg:justify-between md:items-center lg:items-center mt-4 md:mt-8 lg:mt-8">
+          <div className="flex items-center font-inter md:w-60 lg:w-60 rounded-[12px] text-[12px] bg-[#1B1F27] p-1">
+            <button
+              onClick={() => setActiveTab("today")}
+              className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer hover:bg-[#15171d77] ${
+                activeTab === "today" &&
+                "border-2 border-[#2B303D] bg-[#000000] text-[#CCFF00] font-semibold"
+              }`}
+            >
+              Today's Plan
+            </button>
+
+            <button
+              onClick={() => setActiveTab("saved")}
+              className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer hover:bg-[#15171d77] ${
+                activeTab === "saved" &&
+                "border-2 border-[#2B303D] bg-[#000000] text-[#CCFF00] font-semibold"
+              }`}
+            >
+              Saved
+            </button>
+          </div>
+
+          <div className="flex gap-3 justify-between items-center">
+            <p className="font-inter text-[12px] text-[#8A92A0] shrink-0">
+              Sort By
+            </p>
+            <select
+              value={activeTab === "today" ? todaySortBy : savedSortBy}
+              onChange={(e) => {
+                if (activeTab === "today") {
+                  setTodaySortBy(e.target.value);
+                } else {
+                  setSavedSortBy(e.target.value);
+                }
+              }}
+              className="cursor-pointer select select-ghost bg-[#13161D] border-[#232732] rounded-[9px] font-inter text-[12px] hover:bg-[#15171d77]"
+            >
+              <option value={"duration"}>Duration</option>
+              <option value="calories">Calories</option>
+              <option value={"rating"}>Rating</option>
+            </select>
+          </div>
+        </div>
+        <div className="mt-5">
+          {activeTab === "today" ? (
+            todayPlanLoading ? (
+              <h2 className="font-inter text-center text-[18px] md:text-[24px] lg:text-[24px] text-[#CCFF00] font-bold flex justify-center items-center px-0 py-25 md:p-25 lg:p-25">
+                Loading workouts…
+              </h2>
+            ) : sortedTodayPlan.length > 0 ? (
+              <div className="grid gap-4">
+                {sortedTodayPlan.map((plan) => (
+                  <TodayPlanCard
+                    activeTab={activeTab}
+                    key={plan.id}
+                    data={plan}
+                  />
+                ))}
+              </div>
+            ) : (
+              <EmptyCard />
+            )
+          ) : saveforLaterLoading ? (
+            <h2 className="font-inter text-center text-[18px] md:text-[24px] lg:text-[24px] text-[#CCFF00] font-bold flex justify-center items-center px-0 py-25 md:p-25 lg:p-25">
               Loading workouts…
             </h2>
-          ) : sortedTodayPlan.length > 0 ? (
+          ) : sortedSaveForLater.length > 0 ? (
             <div className="grid gap-4">
-              {sortedTodayPlan.map((plan) => (
-                <TodayPlanCard
+              {sortedSaveForLater.map((saved) => (
+                <SavedForLaterCard
                   activeTab={activeTab}
-                  key={plan.id}
-                  data={plan}
+                  key={saved.id}
+                  data={saved}
                 />
               ))}
             </div>
           ) : (
             <EmptyCard />
-          )
-        ) : saveforLaterLoading ? (
-          <h2 className="font-inter text-[24px] text-[#CCFF00] font-bold flex justify-center items-center p-25">
-            Loading workouts…
-          </h2>
-        ) : sortedSaveForLater.length > 0 ? (
-          <div className="grid gap-4">
-            {sortedSaveForLater.map((saved) => (
-              <SavedForLaterCard
-                activeTab={activeTab}
-                key={saved.id}
-                data={saved}
-              />
-            ))}
-          </div>
-        ) : (
-          <EmptyCard />
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

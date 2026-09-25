@@ -30,9 +30,11 @@ export default function RootLayout({ children }) {
 
         <ContextProvider>
           <Navbar />
-          {children}
+         <main>
+           {children}
+         </main>
           <Footer />
-          <ToastContainer />
+          <ToastContainer autoClose={1000} />
         </ContextProvider>
 
       </body>

@@ -20,10 +20,13 @@ const TodayPlanButton = ({ data }) => {
   };
 
   return (
-    <div>
+    <div onClick={()=>{
+      todayPlan.length>=5 && toast.warning("Maxium plans added for today")
+    }}>
       <button
         onClick={handleTodayPlan}
-        className="btn rounded-[10px] font-semibold bg-[#CCFF00] text-[#000000] hover:bg-[#e0ff64]"
+        disabled={todayPlan.length>=5}
+        className="btn rounded-[10px] font-semibold bg-[#CCFF00] text-[#000000] hover:bg-[#e0ff64] disabled:opacity-50"
       >
         <LuCalendarPlus2 /> Add to today's plan
       </button>

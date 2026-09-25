@@ -7,13 +7,13 @@ import { FaFireFlameCurved } from "react-icons/fa6";
 const ExerciseCard = ({ data }) => {
 
   return (
-    <div className="bg-[#20242e9c] rounded-2xl">
+    <div className="bg-[#20242e9c] rounded-2xl hover:border hover:border-[#c2f80063]">
       <Link href={`exercises/${data.id}`}>
-        <div className="relative w-full h-[25vh]">
+        <div className="relative w-full h-[35vh]">
         <Image src={data.image} fill alt={data.name} className="object-cover rounded-t-2xl" />
       </div>
 
-      <div className="p-5 space-y-4">
+      <div className="p-5 space-y-5">
         <div className="flex gap-2 font-inter text-[11px] font-bold uppercase leading-none">
           {data.muscleGroups.map((muscle, index) => (
             <span key={index} className="bg-[#C2F800] text-[#000000] px-2 py-1 rounded-2xl">
@@ -22,7 +22,7 @@ const ExerciseCard = ({ data }) => {
           ))}
         </div>
 
-        <div>
+        <div className="space-y-4">
           <h2 className="uppercase text-[18px] font-bold">{data.name}</h2>
           <p className="font-inter text-[12px] text-[#9CA3AF]">
             {data.equipment}

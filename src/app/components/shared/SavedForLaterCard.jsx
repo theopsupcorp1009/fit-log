@@ -40,7 +40,7 @@ const SavedForLaterCard = ({activeTab, data}) => {
                </div>
        
                <div className="flex gap-3 items-center">
-                 <button className="btn rounded-4xl font-inter text-[12px] border-[#374151] bg-[#00000028]">
+                 <button className="btn rounded-4xl font-inter text-[12px] border-[#374151] bg-[#00000028] hover:bg-transparent hover:border-0">
                    <Link href={`/exercises/${data.id}`}>View Details</Link>
                  </button>
                  <RemoveButton activeTab={activeTab} data={data} />

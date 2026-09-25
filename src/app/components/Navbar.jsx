@@ -24,10 +24,10 @@ const Navbar = () => {
         <ul className="text-[12px] grid grid-cols-2 gap-4 items-center font-inter">
           <li onClick={() => setClicked("workouts")}>
             <Link
-              className={`px-3 py-1 ${
+               className={`px-3 py-1 font-semibold hover:bg-[#15171D] rounded-3xl ${
                 clicked === "workouts"
-                  ? "text-[#C2F800] bg-[#1A2312] rounded-3xl"
-                  : "font-semibold text-[#9CA3AF]"
+                  ? "text-[#C2F800] bg-[#1A2312]"
+                  : "text-[#9CA3AF]"
               }`}
               href="/"
             >
@@ -36,10 +36,10 @@ const Navbar = () => {
           </li>
           <li onClick={() => setClicked("myplan")}>
             <Link
-              className={`px-3 py-1 ${
+              className={`px-3 py-1 font-semibold hover:bg-[#15171D] rounded-3xl ${
                 clicked === "myplan"
-                  ? "text-[#C2F800] bg-[#1A2312] rounded-3xl"
-                  : "font-semibold text-[#9CA3AF]"
+                  ? "text-[#C2F800] bg-[#1A2312]"
+                  : "text-[#9CA3AF]"
               }`}
               href="/myplan"
             >
@@ -49,7 +49,7 @@ const Navbar = () => {
         </ul>
 
         <div className="font-inter grid grid-cols-2 gap-4">
-          <div className="flex gap-1 items-center justify-center">
+          <div className="flex gap-1 items-center justify-center px-2 py-1 rounded-[8px] hover:bg-[#15171D] cursor-pointer">
             <Link
               href="/myplan"
               className="text-[#D1D5DB] text-[12px] font-medium"
@@ -61,7 +61,7 @@ const Navbar = () => {
             </p>
           </div>
 
-          <div className="flex gap-1 items-center justify-center">
+          <div className="flex gap-1 items-center justify-center px-2 py-1 rounded-[8px] hover:bg-[#15171D] cursor-pointer">
             <Link
               href="/myplan"
               className="text-[#9CA3AF] text-[12px] font-medium"

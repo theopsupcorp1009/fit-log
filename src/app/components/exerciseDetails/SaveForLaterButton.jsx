@@ -21,7 +21,7 @@ const SaveForLaterButton = ({ data }) => {
     <div>
       <button
         onClick={handleSaveForLater}
-        className="btn rounded-[10px] border-[#374151] font-medium"
+        className="btn rounded-[10px] border-[#374151] font-medium hover:bg-[#15171D]"
       >
         <FaRegBookmark /> Save for later
       </button>

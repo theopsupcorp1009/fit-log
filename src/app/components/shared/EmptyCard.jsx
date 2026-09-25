@@ -10,7 +10,7 @@ const EmptyCard = () => {
             Browse the library and add a lift to get today moving.
           </p>
         </div>
-        <button className="btn font-inter font-semibold text-[#000000] text-[12px] bg-[#CCFF00] rounded-3xl w-40 mx-auto">
+        <button className="btn font-inter font-semibold text-[#000000] text-[12px] bg-[#CCFF00] rounded-3xl w-40 mx-auto hover:bg-[#e0ff64]">
           <Link href="/">Go to workouts</Link>
         </button>
       </div>

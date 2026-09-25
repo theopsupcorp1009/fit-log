@@ -17,7 +17,7 @@ const Banner = () => {
           today's plan, and watch the week's work add up.
         </p>
         <a href="#library">
-          <button className="btn bg-[#C2F800] font-inter font-bold text-[12px] text-[#000000]">
+          <button className="btn bg-[#C2F800] rounded-[8px] font-inter font-bold text-[12px] text-[#000000] hover:bg-[#e0ff64]">
             BROWSE WORKOUTS
           </button>
         </a>

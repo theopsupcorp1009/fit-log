@@ -48,22 +48,25 @@ const page = () => {
     0,
   );
 
-  const [sortBy, setSortBy] = useState("duration");
+  const [todaySortBy, setTodaySortBy] = useState("duration");
+  const [savedSortBy, setSavedSortBy] = useState("duration");
 
-  const sortMyPlan = (plans) => {
+  const sortMyPlan = (plans, sortBy) => {
     const sortedPlans = [...plans];
-    if(sortBy==="duration"){
-      sortedPlans.sort((a,b)=>b.duration-a.duration)
-    }else if(sortBy==="calories"){
-      sortedPlans.sort((a,b)=>b.caloriesBurned-a.caloriesBurned)
-    }else if(sortBy=="rating"){
-      sortedPlans.sort((a,b)=>b.rating-a.rating)
-    }
-    return sortedPlans
-  }
 
-  const sortedTodayPlan = sortMyPlan(todayPlan);
-  const sortedSaveForLater = sortMyPlan(saveForLater);
+    if (sortBy === "duration") {
+      sortedPlans.sort((a, b) => b.duration - a.duration);
+    } else if (sortBy === "calories") {
+      sortedPlans.sort((a, b) => b.caloriesBurned - a.caloriesBurned);
+    } else if (sortBy === "rating") {
+      sortedPlans.sort((a, b) => b.rating - a.rating);
+    }
+
+    return sortedPlans;
+  };
+
+  const sortedTodayPlan = sortMyPlan(todayPlan, todaySortBy);
+  const sortedSaveForLater = sortMyPlan(saveForLater, savedSortBy);
 
   return (
     <div className="container mx-auto mt-15">
@@ -95,7 +98,7 @@ const page = () => {
         <div className="flex items-center font-inter w-60 rounded-[12px] text-[12px] bg-[#1B1F27] p-1">
           <button
             onClick={() => setActiveTab("today")}
-            className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer ${
+            className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer hover:bg-[#15171d77] ${
               activeTab === "today" &&
               "border-2 border-[#2B303D] bg-[#000000] text-[#CCFF00] font-semibold"
             }`}
@@ -105,7 +108,7 @@ const page = () => {
 
           <button
             onClick={() => setActiveTab("saved")}
-            className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer ${
+            className={`w-1/2 px-3 py-2 text-[#8A92A0] rounded-[12px] cursor-pointer hover:bg-[#15171d77] ${
               activeTab === "saved" &&
               "border-2 border-[#2B303D] bg-[#000000] text-[#CCFF00] font-semibold"
             }`}
@@ -114,14 +117,20 @@ const page = () => {
           </button>
         </div>
 
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex gap-2 justify-between items-center">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 flex gap-3 justify-between items-center">
           <p className="font-inter text-[12px] text-[#8A92A0] shrink-0">
             Sort By
           </p>
           <select
-            value={sortBy}
-            onChange={(e)=>setSortBy(e.target.value)}
-            className="cursor-pointer select select-ghost bg-[#13161D] border-[#232732] rounded-[9px] font-inter text-[12px]"
+            value={activeTab === "today" ? todaySortBy : savedSortBy}
+            onChange={(e) => {
+              if (activeTab === "today") {
+                setTodaySortBy(e.target.value);
+              } else {
+                setSavedSortBy(e.target.value);
+              }
+            }}
+            className="cursor-pointer select select-ghost bg-[#13161D] border-[#232732] rounded-[9px] font-inter text-[12px] hover:bg-[#15171d77]"
           >
             <option value={"duration"}>Duration</option>
             <option value="calories">Calories</option>
@@ -150,8 +159,8 @@ const page = () => {
           )
         ) : saveforLaterLoading ? (
           <h2 className="font-inter text-[24px] text-[#CCFF00] font-bold flex justify-center items-center p-25">
-              Loading workouts…
-            </h2>
+            Loading workouts…
+          </h2>
         ) : sortedSaveForLater.length > 0 ? (
           <div className="grid gap-4">
             {sortedSaveForLater.map((saved) => (

@@ -21,11 +21,11 @@ const MarkAsDoneButton = () => {
     <div>
       <button
         onClick={handleMarkAsDone}
-        className={`btn whitespace-nowrap rounded-4xl font-inter font-semibold text-[12px] 
+        className={`btn whitespace-nowrap rounded-4xl font-inter font-semibold text-[12px]
         ${
           marked
-            ? "bg-transparent border-[#374151] text-[#D1D5DB]"
-            : "bg-[#CCFF00] text-black"
+            ? "bg-transparent border-[#374151] text-[#D1D5DB] hover:bg-[#9cb3f720]"
+            : "bg-[#CCFF00] text-black hover:bg-[#e0ff64]"
         }
       `}
       >

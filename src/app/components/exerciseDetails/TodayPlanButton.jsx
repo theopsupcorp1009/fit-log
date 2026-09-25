@@ -23,7 +23,7 @@ const TodayPlanButton = ({ data }) => {
     <div>
       <button
         onClick={handleTodayPlan}
-        className="btn rounded-[10px] font-semibold bg-[#CCFF00] text-[#000000]"
+        className="btn rounded-[10px] font-semibold bg-[#CCFF00] text-[#000000] hover:bg-[#e0ff64]"
       >
         <LuCalendarPlus2 /> Add to today's plan
       </button>

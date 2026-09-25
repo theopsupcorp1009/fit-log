@@ -23,7 +23,7 @@ const RemoveButton = ({activeTab, data}) => {
 
     return (
         <div>
-            <IoMdClose onClick={handleRemoveData} className="w-[28px] h-[28px] text-[#6B7280] cursor-pointer" />
+            <IoMdClose onClick={handleRemoveData} className="w-[28px] h-[28px] text-[#6B7280] cursor-pointer hover:text-white" />
         </div>
     );
 };

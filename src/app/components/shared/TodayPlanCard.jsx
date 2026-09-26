@@ -8,7 +8,7 @@ import MarkAsDoneButton from "../allPlans/MarkAsDoneButton";
 
 const TodayPlanCard = ({ activeTab, data }) => {
   return (
-    <div className="bg-[#14171E] border-[#232732] flex flex-col gap-5 sm:flex-col sm:items-start justify-center sm:gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row md:justify-between lg:justify-between md:items-center lg:items-center p-5 sm:p-5 md:p-5 lg:p-5 rounded-3xl">
+    <div className="bg-[#14171E] border-[#232732] flex flex-col gap-5 sm:flex-col sm:items-start justify-center sm:gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row md:justify-between lg:justify-between md:items-center lg:items-center p-3 sm:p-5 md:p-5 lg:p-5 rounded-3xl">
       <div className="flex justify-start gap-5 items-center">
         <div className="relative h-[80px] w-[124px] md:w-[144px] md:h-[100px] lg:w-[144px] lg:h-[100px]">
           <Image
@@ -40,7 +40,7 @@ const TodayPlanCard = ({ activeTab, data }) => {
         </div>
       </div>
 
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-3 items-center border-2 border-[#2B303D] rounded-2xl md:border-none lg:border-none py-3 px-3 md:p-0 lg:p-0">
         <button className="btn rounded-4xl font-inter text-[12px] border-[#374151] bg-[#00000028] hover:bg-transparent hover:border-0">
           <Link href={`/exercises/${data.id}`}>View Details</Link>
         </button>

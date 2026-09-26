@@ -118,7 +118,7 @@ const page = () => {
             </button>
           </div>
 
-          <div className="flex gap-3 justify-between items-center">
+          <div className="flex gap-3 justify-center md:justify-between lg:justify-between items-center border-2 border-[#2B303D] rounded-2xl md:border-none lg:border-none p-3 md:p-0 lg:p-0">
             <p className="font-inter text-[12px] text-[#8A92A0] shrink-0">
               Sort By
             </p>

@@ -7,12 +7,15 @@ export const Context = createContext({
   setTodayPlan: () => {},
   saveForLater: [],
   setSaveForLater: () => {},
+  activeTab: '',
+  setActiveTab: ()=>{}
 });
 
 const ContextProvider = ({ children }) => {
   const [todayPlan, setTodayPlan] = useState([]);
   const [saveForLater, setSaveForLater] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const [activeTab, setActiveTab] = useState("today");
 
   useEffect(()=>{
     const todayPlanFromLocal = localStorage.getItem("todayPlan");
@@ -46,6 +49,8 @@ const ContextProvider = ({ children }) => {
     setTodayPlan,
     saveForLater,
     setSaveForLater,
+    activeTab,
+    setActiveTab
   };
 
   return <Context.Provider value={sharedStates}>{children}</Context.Provider>;

@@ -8,11 +8,11 @@ import SavedForLaterCard from "../components/shared/SavedForLaterCard";
 import EmptyCard from "../components/shared/EmptyCard";
 
 const page = () => {
-  const { todayPlan, saveForLater } = useContext(Context);
-  const [activeTab, setActiveTab] = useState("today");
+  const { todayPlan, saveForLater, activeTab, setActiveTab } = useContext(Context);
   const [todayPlanLoading, setTodayPlanLoading] = useState(true);
   const [saveforLaterLoading, setSaveForLaterLoading] = useState(true);
 
+  
   useEffect(() => {
     if (todayPlan.length > 0) {
       const timer = setTimeout(() => {

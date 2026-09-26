@@ -5,7 +5,8 @@ import { FaRegClock, FaRegStar } from "react-icons/fa";
 import { FaFireFlameCurved } from "react-icons/fa6";
 import RemoveButton from "../allPlans/RemoveButton";
 
-const SavedForLaterCard = ({ activeTab, data }) => {
+const SavedForLaterCard = ({ data }) => {
+
   return (
     <div className="bg-[#14171E] border-[#232732] flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row md:items-center lg:items-center p-3 sm:p-5 md:p-5 lg:p-5 rounded-3xl">
       <div className="flex justify-start gap-5 items-center">
@@ -43,7 +44,7 @@ const SavedForLaterCard = ({ activeTab, data }) => {
         <button className="btn rounded-4xl font-inter text-[12px] text-[#CCFF00] md:text-white lg:text-white border-[#374151] bg-[#00000028] hover:bg-transparent hover:border-0">
           <Link href={`/exercises/${data.id}`}>View Details</Link>
         </button>
-        <RemoveButton activeTab={activeTab} data={data} />
+        <RemoveButton data={data} />
       </div>
     </div>
   );

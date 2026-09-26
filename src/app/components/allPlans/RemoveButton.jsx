@@ -5,7 +5,9 @@ import React, { useContext } from 'react';
 import { IoMdClose } from "react-icons/io";
 import { toast } from 'react-toastify';
 
-const RemoveButton = ({activeTab, data}) => {
+const RemoveButton = ({data}) => {
+
+    const {activeTab} = useContext(Context);
 
     const {todayPlan, setTodayPlan, saveForLater, setSaveForLater} = useContext(Context);
 

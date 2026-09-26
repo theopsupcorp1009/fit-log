@@ -12,6 +12,8 @@ const Navbar = () => {
 
   const [clicked, setClicked] = useState("workouts");
   const [sideMenu, setSideMenu] = useState(false);
+
+
   const handleSideMenu = () => {
     setSideMenu(!sideMenu);
   };

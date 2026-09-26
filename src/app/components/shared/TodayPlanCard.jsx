@@ -6,7 +6,7 @@ import { FaFireFlameCurved } from "react-icons/fa6";
 import RemoveButton from "../allPlans/RemoveButton";
 import MarkAsDoneButton from "../allPlans/MarkAsDoneButton";
 
-const TodayPlanCard = ({ activeTab, data }) => {
+const TodayPlanCard = ({ data }) => {
   return (
     <div className="bg-[#14171E] border-[#232732] flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row md:items-center lg:items-center p-3 sm:p-5 md:p-5 lg:p-5 rounded-3xl">
       <div className="flex justify-start gap-5 items-center">
@@ -45,7 +45,7 @@ const TodayPlanCard = ({ activeTab, data }) => {
           <Link href={`/exercises/${data.id}`}>View Details</Link>
         </button>
         <MarkAsDoneButton />
-        <RemoveButton activeTab={activeTab} data={data} />
+        <RemoveButton data={data} />
       </div>
     </div>
   );

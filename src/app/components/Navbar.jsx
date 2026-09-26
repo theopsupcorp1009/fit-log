@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <div className="border-b border-[#222630]">
-      <div className="container mx-auto">
+      <div className="mx-auto w-full max-w-[1400px]">
         <nav className="flex justify-between items-center py-5 md:md:px-10 lg:px-0">
           <Link
             className="ml-5 sm:ml-2 md:ml-0 lg:ml-0 flex gap-2 justify-center items-center"

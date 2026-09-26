@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 const Banner = () => {
   return (
-    <div className="container mx-auto">
+    <div className="mx-auto w-full max-w-[1400px]">
       <div className="flex flex-col md:flex-row lg:flex-row justify-center md:justify-between lg:justify-between items-center bg-[#15171D] p-10 rounded-2xl mt-10 mx-5 lg:mx-0">
       <div className="space-y-3 md:space-y-5 lg:space-y-5 col-span-2 max-w-[700px] text-center md:text-left lg:text-left">
         <p className="font-inter font-bold text-[#C2F800] text-[11px]">

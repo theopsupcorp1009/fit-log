@@ -69,7 +69,7 @@ const page = () => {
   const sortedSaveForLater = sortMyPlan(saveForLater, savedSortBy);
 
   return (
-    <div className="container mx-auto mt-3 md:mt-15 lg:mt-15">
+    <div className="mx-auto w-full max-w-[1400px] mt-3 md:mt-15 lg:mt-15">
       <div className="mx-5 md:mx-0 lg:mx-0">
         <div className="space-y-2">
           <h2 className="text-[30px] font-bold">MY PLAN</h2>

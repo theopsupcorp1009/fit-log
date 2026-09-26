@@ -14,7 +14,7 @@ const ExcerciseDetailPage = async ({ params }) => {
   const fitnesData = await getData();
   const data = fitnesData.find((elem) => String(elem.id) === String(id));
   return (
-    <section className="container mx-auto mt-5">
+    <section className="mx-auto w-full max-w-[1400px] mt-5">
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 items-start mx-5 lg:mx-0">
         <div className="relative max-w-[90vw] h-[30vh] sm:h-[40vh] md:h-[50vh] lg:max-[80vh] lg:h-[773px]">
           <Image

@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <div className="items-center border-t border-[#222630] mt-15 py-10">
-      <div className="container mx-auto flex flex-col gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row justify-between items-center">
+      <div className="mx-auto w-full max-w-[1400px] flex flex-col gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row justify-between items-center">
         <div className="flex gap-3 items-center">
         <Image src={Logo} width={20} height={15} alt="Logo"/>
         <h2 className="text-[14px] font-bold">FITLOG</h2>

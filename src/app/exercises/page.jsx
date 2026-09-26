@@ -12,7 +12,7 @@ const Exercises = async () => {
 
   return (
     <div className="mt-15">
-      <div className="container mx-auto" id="library">
+      <div className="mx-auto w-full max-w-[1400px]" id="library">
         <div className="mx-5 lg:mx-0">
           <div className="text-center md:text-left lg:text-left">
             <h2 className="font-bold text-[30px]">The Library</h2>

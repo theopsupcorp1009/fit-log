@@ -7,7 +7,7 @@ import RemoveButton from "../allPlans/RemoveButton";
 
 const SavedForLaterCard = ({ activeTab, data }) => {
   return (
-    <div className="bg-[#14171E] border-[#232732] flex flex-col gap-5 sm:flex-col sm:items-start justify-center sm:gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row md:justify-between lg:justify-between md:items-center lg:items-center p-3 sm:p-5 md:p-5 lg:p-5 rounded-3xl">
+    <div className="bg-[#14171E] border-[#232732] flex flex-col justify-between gap-5 sm:flex-row sm:items-center sm:gap-3 md:gap-0 lg:gap-0 md:flex-row lg:flex-row md:items-center lg:items-center p-3 sm:p-5 md:p-5 lg:p-5 rounded-3xl">
       <div className="flex justify-start gap-5 items-center">
         <div className="relative h-[80px] w-[124px] md:w-[144px] md:h-[100px] lg:w-[144px] lg:h-[100px]">
           <Image
